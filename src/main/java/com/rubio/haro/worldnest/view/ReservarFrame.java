@@ -14,19 +14,19 @@ import javax.swing.JTextField;
  *
  * @author Rubio Haro Rodrigo R.
  */
-public class HistorialFrame extends JFrame implements ActionListener {
+public class ReservarFrame extends JFrame implements ActionListener {
 
     Container container;
     JLabel userLabel;
 
-    JButton reservarButton;
     JButton inicioButton;
+    JButton historialButton;
     JButton salirButton;
 
     IsologoPanel logoPanel;
 
-    public HistorialFrame() {
-        super("Historial");
+    public ReservarFrame() {
+        super("Reservar");
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -46,10 +46,10 @@ public class HistorialFrame extends JFrame implements ActionListener {
         setLayoutManager();
         logoPanel = new IsologoPanel();
 
-        userLabel = new JLabel("Obteniendo Historial");
+        userLabel = new JLabel("Hacer Reservacion");
 
-        reservarButton = new JButton("Reservar");
         inicioButton = new JButton("Inicio");
+        historialButton = new JButton("Historial");
         salirButton = new JButton("Cerrar Sesion");
 
         setLocationAndSize();
@@ -65,7 +65,7 @@ public class HistorialFrame extends JFrame implements ActionListener {
         userLabel.setBounds(10, logo_height_base + 10, 200, 30);
 
         inicioButton.setBounds(10, logo_height_base + 45, 120, 30);
-        reservarButton.setBounds(150, logo_height_base + 45, 120, 30);
+        historialButton.setBounds(150, logo_height_base + 45, 120, 30);
         salirButton.setBounds(290, logo_height_base + 45, 120, 30);
 
     }
@@ -75,13 +75,13 @@ public class HistorialFrame extends JFrame implements ActionListener {
         container.add(userLabel);
 
         container.add(inicioButton);
-        container.add(reservarButton);
+        container.add(historialButton);
         container.add(salirButton);
     }
 
     public void addActionEvent() {
-        reservarButton.addActionListener(this);
         inicioButton.addActionListener(this);
+        historialButton.addActionListener(this);
         salirButton.addActionListener(this);
     }
 
@@ -112,10 +112,9 @@ public class HistorialFrame extends JFrame implements ActionListener {
             new HomeFrame();
             this.dispose();
         }
-        if (e.getSource() == reservarButton) {
-            new ReservarFrame();
+        if (e.getSource() == historialButton) {
+            new HistorialFrame();
             this.dispose();
         }
-
     }
 }

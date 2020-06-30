@@ -58,7 +58,4 @@ public class Reservacion {
     public String toString() {
         return "Reservacion{" + "claveReservacion=" + claveReservacion + ", tarjeta=" + tarjeta + '}';
     }
-
-    
-    
 }

@@ -24,6 +24,7 @@ public class HomeFrame extends JFrame implements ActionListener {
     JButton reservarButton;
     JButton historialButton;
     JButton salirButton;
+    JButton perfilButton;
 
     IsologoPanel logoPanel;
 
@@ -53,6 +54,7 @@ public class HomeFrame extends JFrame implements ActionListener {
         reservarButton = new JButton("Reservar");
         historialButton = new JButton("Historial");
         salirButton = new JButton("Cerrar Sesion");
+        perfilButton = new JButton("Cerrar Sesion");
 
         setLocationAndSize();
         addComponentsToContainer();
@@ -69,6 +71,7 @@ public class HomeFrame extends JFrame implements ActionListener {
         reservarButton.setBounds(10, logo_height_base + 45, 120, 30);
         historialButton.setBounds(150, logo_height_base + 45, 120, 30);
         salirButton.setBounds(290, logo_height_base + 45, 120, 30);
+        perfilButton.setBounds(330, logo_height_base + 45, 120, 30);
 
     }
 
@@ -108,6 +111,14 @@ public class HomeFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == salirButton) {
             new LoginFrame();
+            this.dispose();
+        }
+        if (e.getSource() == reservarButton) {
+            new ReservarFrame();
+            this.dispose();
+        }
+        if (e.getSource() == historialButton) {
+            new HistorialFrame();
             this.dispose();
         }
     }
