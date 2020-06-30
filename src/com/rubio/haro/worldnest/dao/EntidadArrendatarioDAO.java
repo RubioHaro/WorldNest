@@ -40,7 +40,7 @@ public class EntidadArrendatarioDAO {
 
     public EntidadArrendatario read(EntidadArrendatario ee) {
         TypedQuery<EntidadArrendatario> query;
-        query = em.createQuery("SELECT e FROM EntidadArrendatario e WHERE e.eid=" + ee.getEid(), EntidadArrendatario.class);
+        query = em.createQuery("SELECT e FROM EntidadArrendatario e WHERE e.enombre='" + ee.getEnombre() + "'", EntidadArrendatario.class);
         ee = query.getSingleResult();
         return ee;
     }

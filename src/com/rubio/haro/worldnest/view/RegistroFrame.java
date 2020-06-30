@@ -3,6 +3,7 @@ package com.rubio.haro.worldnest.view;
 import com.rubio.haro.worldnest.Respuesta;
 import com.rubio.haro.worldnest.dao.EntidadArrendatario;
 import com.rubio.haro.worldnest.dao.EntidadArrendatarioDAO;
+import com.rubio.haro.worldnest.model.Arrendatario;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -69,15 +70,15 @@ public class RegistroFrame extends JFrame implements ActionListener {
 
         passwordLabel = new JLabel("Password");
 
-        userTextField = new JTextField();
+        userTextField = new JTextField("Roy");
         userTextField.setName("Usuario");
-        nombreTextField = new JTextField();
+        nombreTextField = new JTextField("Rodrigo");
         userTextField.setName("Nombre");
-        passwordField = new JPasswordField();
+        passwordField = new JPasswordField("123");
         userTextField.setName("Password");
-        telefonoTextField = new JTextField();
+        telefonoTextField = new JTextField("5520477");
         userTextField.setName("Telefono");
-        direccionTextField = new JTextField();
+        direccionTextField = new JTextField("Arica 48");
         userTextField.setName("Direccion");
 
         loginButton = new JButton("Ir a Login");
@@ -180,7 +181,11 @@ public class RegistroFrame extends JFrame implements ActionListener {
             if (respuesta.getEstado()) {
                 try {
                     EntidadArrendatarioDAO eDao = new EntidadArrendatarioDAO();
-                    eDao.create(new EntidadArrendatario(1, nombreTextField.getText(), direccionTextField.getText(), telefonoTextField.getText()));
+
+                    Arrendatario arrendatario = new Arrendatario(nombreTextField.getText(), direccionTextField.getText(), telefonoTextField.getText());
+                    arrendatario.setPassword(passwordField.getPassword());
+                    EntidadArrendatario entity = new EntidadArrendatario(arrendatario);
+                    eDao.create(entity);
                     new LoginFrame();
                     this.dispose();
                 } catch (Exception ex) {

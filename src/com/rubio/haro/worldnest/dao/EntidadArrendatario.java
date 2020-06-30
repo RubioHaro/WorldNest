@@ -3,6 +3,8 @@ package com.rubio.haro.worldnest.dao;
 import com.rubio.haro.worldnest.model.Arrendatario;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -16,6 +18,7 @@ public class EntidadArrendatario {
 
     @Id
     @Column(name = "eid")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long eid;
     @Column(name = "enombre")
     private String enombre;
@@ -23,6 +26,8 @@ public class EntidadArrendatario {
     private String edireccion;
     @Column(name = "etelefono")
     private String etelefono;
+    @Column(name = "epassword")
+    private String epassword;
 
     public EntidadArrendatario() {
     }
@@ -31,19 +36,18 @@ public class EntidadArrendatario {
         this.eid = eid;
     }
 
-    public EntidadArrendatario(long eid, String enombre, String edireccion, String etelefono) {
-        this.eid = eid;
+    public EntidadArrendatario(String enombre, String edireccion, String etelefono) {
+        this.epassword = "WNP-" + enombre + edireccion + etelefono;
         this.enombre = enombre;
         this.edireccion = edireccion;
         this.etelefono = etelefono;
     }
 
-    public EntidadArrendatario(int id, Arrendatario arrendatario) {
-        this.eid = id;
+    public EntidadArrendatario(Arrendatario arrendatario) {
         this.enombre = arrendatario.getNombre();
         this.edireccion = arrendatario.getDireccion();
         this.etelefono = arrendatario.getTelefono();
-        System.out.println(this);
+        this.epassword = new String(arrendatario.getPassword());
     }
 
     public void setEdireccion(String edireccion) {
@@ -85,7 +89,13 @@ public class EntidadArrendatario {
     @Override
     public String toString() {
         return "EntidadArrendatario{" + "eid=" + eid + ", enombre=" + enombre + ", etelefono=" + etelefono + ", edireccion=" + edireccion + '}';
-
     }
 
+    public void setEpassword(String epassword) {
+        this.epassword = epassword;
+    }
+
+    public boolean login(String password) {
+        return this.epassword.equals(password);
+    }
 }

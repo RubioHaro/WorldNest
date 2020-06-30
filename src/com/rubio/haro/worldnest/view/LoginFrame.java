@@ -1,6 +1,8 @@
 package com.rubio.haro.worldnest.view;
 
 import com.rubio.haro.worldnest.Respuesta;
+import com.rubio.haro.worldnest.dao.EntidadArrendatario;
+import com.rubio.haro.worldnest.dao.EntidadArrendatarioDAO;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -137,8 +139,18 @@ public class LoginFrame extends JFrame implements ActionListener {
                 String pwdText;
                 userText = userTextField.getText();
                 pwdText = passwordField.getText();
-                if (userText.equalsIgnoreCase("roy") && pwdText.equalsIgnoreCase("123")) {
+
+                EntidadArrendatarioDAO eDAO = new EntidadArrendatarioDAO();
+                EntidadArrendatario entity = new EntidadArrendatario();
+                entity.setEnombre(userText);
+                System.out.println(entity);
+                entity = eDAO.read(entity);
+                System.out.println(entity);
+
+                if (entity.login(pwdText)) {
+                    entity.getArrendatario();
                     JOptionPane.showMessageDialog(this, "Login Successful");
+
                     new HomeFrame();
                     this.dispose();
                 } else {

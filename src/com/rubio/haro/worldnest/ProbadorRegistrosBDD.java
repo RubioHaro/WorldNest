@@ -26,7 +26,7 @@ public class ProbadorRegistrosBDD {
         LinkedList<EntidadArrendatario> ees = new LinkedList<>();
         int id = 1;
         for (Arrendatario e : arrendatarios) {
-            ees.add(new EntidadArrendatario(id++, e));
+            ees.add(new EntidadArrendatario(e));
         }
         EntidadArrendatarioDAO eDao = new EntidadArrendatarioDAO();
         eDao.create(ees);
@@ -36,7 +36,10 @@ public class ProbadorRegistrosBDD {
         for (EntidadArrendatario ee : misArrendatarios) {
             System.out.println(ee.getArrendatario());
         }
-        EntidadArrendatario elEmpleado = new EntidadArrendatario(6, new Arrendatario("Karla De La O", "Revolucionarios 55", "84651315"));
+        
+        
+        EntidadArrendatario elEmpleado = new EntidadArrendatario(new Arrendatario("Karla De La O", "Revolucionarios 55", "84651315"));
+        elEmpleado.setEid(6);
         eDao.update(elEmpleado);
         System.out.println(eDao.read(new EntidadArrendatario(6)).getArrendatario());
        

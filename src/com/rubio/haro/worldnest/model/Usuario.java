@@ -7,17 +7,20 @@ package com.rubio.haro.worldnest.model;
 public class Usuario {
 
     private String nombre;
-    public String Direccion;
-    public String Telefono;
+    private String Direccion;
+    private String Telefono;
+    private char[] password;
 
     public Usuario() {
     }
 
     public Usuario(String nombre) {
+        this.password = new char[10];
         this.nombre = nombre;
     }
 
     public Usuario(String nombre, String Direccion, String Telefono) {
+        this.password = new char[10];
         this.nombre = nombre;
         this.Direccion = Direccion;
         this.Telefono = Telefono;
@@ -45,6 +48,14 @@ public class Usuario {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public void setPassword(char[] password) {
+        this.password = password;
+    }
+
+    public char[] getPassword() {
+        return password;
     }
 
     @Override
