@@ -5,6 +5,8 @@
  */
 package worldnestdesktop;
 
+import com.rubio.haro.worldnest.view.PrimerFrame;
+
 /**
  *
  * @author chavo
@@ -15,7 +17,7 @@ public class WorldNestDesktop {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        new PrimerFrame();
     }
-    
+
 }
