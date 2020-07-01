@@ -16,9 +16,10 @@ import javax.imageio.ImageIO;
 public class IsologoPanel extends JPanel {
 
     private BufferedImage image;
+    private File file;
 
-    public IsologoPanel() {
-        File file = new File("C:\\\\Users\\\\chavo\\\\OneDrive\\\\Documentos\\\\NetBeansProjects\\\\WorldNest\\\\src\\\\main\\\\java\\\\com\\\\rubio\\\\haro\\\\worldnest\\\\view\\\\logo.png");
+    public IsologoPanel(String ruta) {
+        file = new File(ruta);
         try {
             image = ImageIO.read(file);
         } catch (IOException ex) {

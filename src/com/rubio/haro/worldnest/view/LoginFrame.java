@@ -34,8 +34,9 @@ public class LoginFrame extends JFrame implements ActionListener {
     JCheckBox showPassword;
     IsologoPanel logoPanel;
 
-    public LoginFrame() {
-        super("Iniciar Sesion");
+    public LoginFrame(String title, IsologoPanel imagen) {
+        super(title);
+        logoPanel = imagen;
         initComponents();
         this.setLocationRelativeTo(null);
 
@@ -55,7 +56,6 @@ public class LoginFrame extends JFrame implements ActionListener {
         container = getContentPane();
         container.setBackground(primaryColor);
         setLayoutManager();
-        logoPanel = new IsologoPanel();
 
         userLabel = new JLabel("Usuario");
         passwordLabel = new JLabel("Password");
@@ -110,7 +110,7 @@ public class LoginFrame extends JFrame implements ActionListener {
         showPassword.addActionListener(this);
     }
 
-    private Respuesta validarCampos() {
+    public Respuesta validarCampos() {
         Respuesta respuesta = validarCampo(userTextField);
         if (respuesta.getEstado()) {
             respuesta = validarCampo(passwordField);
@@ -151,7 +151,7 @@ public class LoginFrame extends JFrame implements ActionListener {
                     entity.getArrendatario();
                     JOptionPane.showMessageDialog(this, "Login Successful");
 
-                    new HomeFrame();
+                    new HomeArrendatarioFrame();
                     this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Invalid Username or Password");

@@ -1,9 +1,9 @@
 package com.rubio.haro.worldnest.view;
 
 import com.rubio.haro.worldnest.Respuesta;
-import com.rubio.haro.worldnest.dao.EntidadArrendatario;
-import com.rubio.haro.worldnest.dao.EntidadArrendatarioDAO;
-import com.rubio.haro.worldnest.model.Arrendatario;
+import com.rubio.haro.worldnest.dao.EntidadArrendador;
+import com.rubio.haro.worldnest.dao.EntidadArrendadorDAO;
+import com.rubio.haro.worldnest.model.Arrendador;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -20,7 +20,7 @@ import javax.swing.JTextField;
  *
  * @author Rubio Haro Rodrigo R.
  */
-public class RegistroFrame extends JFrame implements ActionListener {
+public class RegistroArrendadorFrame extends JFrame implements ActionListener {
 
     Container container;
     JLabel correoLabel;
@@ -40,7 +40,7 @@ public class RegistroFrame extends JFrame implements ActionListener {
     JCheckBox showPassword;
     IsologoPanel logoPanel;
 
-    public RegistroFrame() {
+    public RegistroArrendadorFrame() {
         super("Registro");
         initComponents();
         this.setLocationRelativeTo(null);
@@ -61,7 +61,7 @@ public class RegistroFrame extends JFrame implements ActionListener {
         container = getContentPane();
         container.setBackground(primaryColor);
         setLayoutManager();
-        logoPanel = new IsologoArrendatario();
+        logoPanel = new IsologoArrendador();
 
         correoLabel = new JLabel("Correo Electronico");
         nombreLabel = new JLabel("Nombre");
@@ -180,13 +180,13 @@ public class RegistroFrame extends JFrame implements ActionListener {
             Respuesta respuesta = validarCampos();
             if (respuesta.getEstado()) {
                 try {
-                    EntidadArrendatarioDAO eDao = new EntidadArrendatarioDAO();
+                    EntidadArrendadorDAO eDao = new EntidadArrendadorDAO();
 
-                    Arrendatario arrendatario = new Arrendatario(nombreTextField.getText(), direccionTextField.getText(), telefonoTextField.getText());
+                    Arrendador arrendatario = new Arrendador(nombreTextField.getText(), direccionTextField.getText(), telefonoTextField.getText());
                     arrendatario.setPassword(passwordField.getPassword());
-                    EntidadArrendatario entity = new EntidadArrendatario(arrendatario);
+                    EntidadArrendador entity = new EntidadArrendador(arrendatario);
                     eDao.create(entity);
-                    new LoginArrendatarioFrame();
+                    new LoginArrendadorFrame();
                     this.dispose();
                 } catch (Exception ex) {
                     System.out.println(ex);
@@ -195,12 +195,10 @@ public class RegistroFrame extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(this, respuesta.getMensaje());
             }
         }
-        //Coding Part of RESET button
         if (e.getSource() == loginButton) {
             new LoginArrendatarioFrame();
             this.dispose();
         }
-        //Coding Part of showPassword JCheckBox
         if (e.getSource() == showPassword) {
             if (showPassword.isSelected()) {
                 passwordField.setEchoChar((char) 0);

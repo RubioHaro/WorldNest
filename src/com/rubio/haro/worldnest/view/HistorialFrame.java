@@ -44,7 +44,7 @@ public class HistorialFrame extends JFrame implements ActionListener {
         container = getContentPane();
         container.setBackground(primaryColor);
         setLayoutManager();
-        logoPanel = new IsologoPanel();
+        logoPanel = new IsologoArrendatario();
 
         userLabel = new JLabel("Obteniendo Historial");
 
@@ -108,11 +108,11 @@ public class HistorialFrame extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == salirButton) {
-            new LoginFrame();
+            new LoginArrendatarioFrame();
             this.dispose();
         }
         if (e.getSource() == inicioButton) {
-            new HomeFrame();
+            new HomeArrendatarioFrame();
             this.dispose();
         }
         if (e.getSource() == reservarButton) {
