@@ -1,15 +1,6 @@
 package com.rubio.haro.worldnest;
 
-import com.rubio.haro.worldnest.view.HomeFrame;
-import com.rubio.haro.worldnest.view.IsologoPanel;
-import com.rubio.haro.worldnest.view.LoginFrame;
-import com.rubio.haro.worldnest.view.RegistroFrame;
-import com.rubio.haro.worldnest.view.ReservarFrame;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
+import com.rubio.haro.worldnest.view.PrimerFrame;
 
 /**
  *
@@ -26,7 +17,7 @@ public class Main {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }*/
 
-        new RegistroFrame();
+        new PrimerFrame();
 
     }
 }

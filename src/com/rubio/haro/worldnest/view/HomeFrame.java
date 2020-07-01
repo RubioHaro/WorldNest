@@ -1,16 +1,12 @@
 package com.rubio.haro.worldnest.view;
 
-import com.rubio.haro.worldnest.Respuesta;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
@@ -21,24 +17,23 @@ public class HomeFrame extends JFrame implements ActionListener {
     Container container;
     JLabel userLabel;
 
-    JButton reservarButton;
-    JButton historialButton;
+    JButton button1;
+    JButton button2;
     JButton salirButton;
     JButton perfilButton;
 
     IsologoPanel logoPanel;
 
-    public HomeFrame() {
-        super("Home");
-        initComponents();
-        this.setLocationRelativeTo(null);
+    public HomeFrame(String title, IsologoPanel imagen) {
+        super(title);
+        this.logoPanel = imagen;
     }
 
     public void setLayoutManager() {
         container.setLayout(null);
     }
 
-    private void initComponents() {
+    public void initComponents() {
         this.setBounds(10, 10, 500, 700);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
@@ -47,15 +42,11 @@ public class HomeFrame extends JFrame implements ActionListener {
         container = getContentPane();
         container.setBackground(primaryColor);
         setLayoutManager();
-        logoPanel = new IsologoPanel();
 
         userLabel = new JLabel("Bienvenido Usuario");
 
-        reservarButton = new JButton("Reservar");
-        reservarButton.setBackground(Color.WHITE);
-        historialButton = new JButton("Historial");
-        historialButton.setBackground(Color.WHITE);
-        salirButton = new JButton("Cerrar Sesion");
+        button1.setBackground(Color.WHITE);
+        button2.setBackground(Color.WHITE);
         salirButton.setBackground(Color.WHITE);
         perfilButton = new JButton("Cerrar Sesion");
         perfilButton.setBackground(Color.WHITE);
@@ -72,8 +63,8 @@ public class HomeFrame extends JFrame implements ActionListener {
 
         userLabel.setBounds(10, logo_height_base + 10, 200, 30);
 
-        reservarButton.setBounds(10, logo_height_base + 45, 120, 30);
-        historialButton.setBounds(150, logo_height_base + 45, 120, 30);
+        button1.setBounds(10, logo_height_base + 45, 120, 30);
+        button2.setBounds(150, logo_height_base + 45, 120, 30);
         salirButton.setBounds(290, logo_height_base + 45, 120, 30);
         perfilButton.setBounds(330, logo_height_base + 45, 120, 30);
 
@@ -83,48 +74,30 @@ public class HomeFrame extends JFrame implements ActionListener {
         container.add(logoPanel);
         container.add(userLabel);
 
-        container.add(reservarButton);
-        container.add(historialButton);
+        container.add(button1);
+        container.add(button2);
         container.add(salirButton);
     }
 
     public void addActionEvent() {
-        reservarButton.addActionListener(this);
-        historialButton.addActionListener(this);
+        button1.addActionListener(this);
+        button2.addActionListener(this);
         salirButton.addActionListener(this);
-    }
-
-    private Respuesta validarCampos() {
-        //Respuesta respuesta = validarCampo(userTextField);
-        return null;
-    }
-
-    public Respuesta validarCampo(JTextField campo) {
-        if (campo != null) {
-            String text = campo.getText();
-            if (!text.isEmpty()) {
-                return new Respuesta(true, "es valido");
-            } else {
-                return new Respuesta(false, "El campo esta vacio");
-            }
-        }
-        return new Respuesta(false, "No se ha podido obtener el campo: null");
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == salirButton) {
-            new LoginFrame();
+            new LoginArrendatarioFrame();
             this.dispose();
         }
-        if (e.getSource() == reservarButton) {
+        if (e.getSource() == button1) {
             new ReservarFrame();
             this.dispose();
         }
-        if (e.getSource() == historialButton) {
+        if (e.getSource() == button2) {
             new HistorialFrame();
             this.dispose();
         }
     }
-
 }

@@ -3,7 +3,7 @@
   <persistence-unit name="WorldNestDesktopPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.rubio.haro.worldnest.dao.EntidadArrendatario</class>
-    <class>com.rubio.haro.worldnest.dao.EntidadEmpleado</class>
+    <class>com.rubio.haro.worldnest.dao.EntidadArrendador</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/worldnest?serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
