@@ -3,6 +3,7 @@ package com.rubio.haro.worldnest;
 import com.rubio.haro.worldnest.view.HomeFrame;
 import com.rubio.haro.worldnest.view.IsologoPanel;
 import com.rubio.haro.worldnest.view.LoginFrame;
+import com.rubio.haro.worldnest.view.RegistroFrame;
 import com.rubio.haro.worldnest.view.ReservarFrame;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +26,7 @@ public class Main {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }*/
 
-        new HomeFrame();
+        new LoginFrame();
 
     }
 }

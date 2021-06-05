@@ -49,8 +49,13 @@ public class ReservarFrame extends JFrame implements ActionListener {
         userLabel = new JLabel("Hacer Reservacion");
 
         inicioButton = new JButton("Inicio");
+        inicioButton.setBackground(Color.WHITE);
+
         historialButton = new JButton("Historial");
+        historialButton.setBackground(Color.WHITE);
+
         salirButton = new JButton("Cerrar Sesion");
+        salirButton.setBackground(Color.WHITE);
 
         setLocationAndSize();
         addComponentsToContainer();

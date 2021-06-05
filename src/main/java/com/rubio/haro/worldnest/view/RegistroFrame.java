@@ -20,11 +20,15 @@ import javax.swing.JTextField;
 public class RegistroFrame extends JFrame implements ActionListener {
 
     Container container;
-    JLabel userLabel;
+    JLabel correoLabel;
     JLabel nombreLabel;
+    JLabel telefonoLabel;
+    JLabel direccionLabel;
     JLabel passwordLabel;
 
     JTextField userTextField;
+    JTextField telefonoTextField;
+    JTextField direccionTextField;
     JTextField nombreTextField;
     JPasswordField passwordField;
 
@@ -46,7 +50,7 @@ public class RegistroFrame extends JFrame implements ActionListener {
 
     private void initComponents() {
 
-        this.setBounds(10, 10, 500, 750);
+        this.setBounds(10, 10, 500, 800);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
 
@@ -56,16 +60,24 @@ public class RegistroFrame extends JFrame implements ActionListener {
         setLayoutManager();
         logoPanel = new IsologoPanel();
 
-        userLabel = new JLabel("Usuario");
+        correoLabel = new JLabel("Correo Electronico");
         nombreLabel = new JLabel("Nombre");
+        telefonoLabel = new JLabel("# Telefonico");
+        direccionLabel = new JLabel("Direccion");
+
         passwordLabel = new JLabel("Password");
 
         userTextField = new JTextField();
         nombreTextField = new JTextField();
         passwordField = new JPasswordField();
+        telefonoTextField = new JTextField();
+        direccionTextField = new JTextField();
 
         loginButton = new JButton("Ir a Login");
+        loginButton.setBackground(Color.WHITE);
         registroButton = new JButton("Registrar");
+        registroButton.setBackground(Color.WHITE);
+
         showPassword = new JCheckBox("mostrar");
         showPassword.setBackground(primaryColor);
 
@@ -80,29 +92,39 @@ public class RegistroFrame extends JFrame implements ActionListener {
         logoPanel.setBounds(0, 0, logo_height_base, 500);
 
         nombreLabel.setBounds(10, logo_height_base + 10, 100, 30);
-        nombreTextField.setBounds(10, logo_height_base + 50, 150, 30);
-
-        userLabel.setBounds(10, logo_height_base + 10 + 80, 100, 30);
-        userTextField.setBounds(10, logo_height_base + 50 + 80, 150, 30);
+        nombreTextField.setBounds(10, logo_height_base + 40, 150, 30);
 
         passwordLabel.setBounds(200, logo_height_base + 10, 100, 30);
-        passwordField.setBounds(200, logo_height_base + 50, 150, 30);
+        passwordField.setBounds(200, logo_height_base + 40, 150, 30);
         showPassword.setBounds(260, logo_height_base + 10, 80, 30);
 
-        loginButton.setBounds(370, logo_height_base + 10, 100, 30);
-        registroButton.setBounds(370, logo_height_base + 45, 100, 30);
+        correoLabel.setBounds(10, logo_height_base + 10 + 80, 120, 30);
+        userTextField.setBounds(10, logo_height_base + 40 + 80, 150, 30);
+
+        telefonoLabel.setBounds(200, logo_height_base + 10 + 80, 120, 30);
+        telefonoTextField.setBounds(200, logo_height_base + 40 + 80, 150, 30);
+
+        direccionLabel.setBounds(10, logo_height_base + 10 + 80 * 2, 120, 30);
+        direccionTextField.setBounds(10, logo_height_base + 40 + 80 * 2, 150 * 2 + 40, 30);
+
+        loginButton.setBounds(370, logo_height_base + 10, 100, 100);
+        registroButton.setBounds(370, logo_height_base + 130, 100, 100);
 
     }
 
     public void addComponentsToContainer() {
         container.add(logoPanel);
-        container.add(userLabel);
+
+        container.add(correoLabel);
         container.add(nombreLabel);
-
         container.add(passwordLabel);
-        container.add(userTextField);
-        container.add(nombreTextField);
+        container.add(telefonoLabel);
+        container.add(direccionLabel);
 
+        container.add(userTextField);
+        container.add(telefonoTextField);
+        container.add(direccionTextField);
+        container.add(nombreTextField);
         container.add(passwordField);
         container.add(showPassword);
         container.add(loginButton);

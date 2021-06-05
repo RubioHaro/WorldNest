@@ -49,8 +49,11 @@ public class HistorialFrame extends JFrame implements ActionListener {
         userLabel = new JLabel("Obteniendo Historial");
 
         reservarButton = new JButton("Reservar");
+        reservarButton.setBackground(Color.WHITE);
         inicioButton = new JButton("Inicio");
+        inicioButton.setBackground(Color.WHITE);
         salirButton = new JButton("Cerrar Sesion");
+        salirButton.setBackground(Color.WHITE);
 
         setLocationAndSize();
         addComponentsToContainer();

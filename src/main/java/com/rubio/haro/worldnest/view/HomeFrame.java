@@ -52,9 +52,13 @@ public class HomeFrame extends JFrame implements ActionListener {
         userLabel = new JLabel("Bienvenido Usuario");
 
         reservarButton = new JButton("Reservar");
+        reservarButton.setBackground(Color.WHITE);
         historialButton = new JButton("Historial");
+        historialButton.setBackground(Color.WHITE);
         salirButton = new JButton("Cerrar Sesion");
+        salirButton.setBackground(Color.WHITE);
         perfilButton = new JButton("Cerrar Sesion");
+        perfilButton.setBackground(Color.WHITE);
 
         setLocationAndSize();
         addComponentsToContainer();

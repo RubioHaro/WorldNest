@@ -62,7 +62,10 @@ public class LoginFrame extends JFrame implements ActionListener {
         passwordField = new JPasswordField();
 
         loginButton = new JButton("Iniciar");
+        loginButton.setBackground(Color.WHITE);
         registroButton = new JButton("Ir a registro");
+        registroButton.setBackground(Color.WHITE);
+
         showPassword = new JCheckBox("mostrar");
         showPassword.setBackground(primaryColor);
 
